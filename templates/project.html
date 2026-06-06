@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects · Alex Morgan</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Filters ─────────────────────────────────────── */
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .filter-btn {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      padding: 7px 16px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .filter-btn:hover { border-color: var(--text); color: var(--text); }
+    .filter-btn.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+ 
+    /* ── Projects grid ───────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color var(--transition), transform var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .proj-card:hover {
+      border-color: #BBBAB4;
+      transform: translateY(-4px);
+    }
+    .proj-card[data-hidden] { display: none; }
+    .proj-thumb {
+      aspect-ratio: 16/9;
+      background: var(--surface-alt);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-thumb-number {
+      font-size: 4rem;
+      font-weight: 300;
+      letter-spacing: -0.06em;
+      color: var(--text);
+      opacity: 0.07;
+      line-height: 1;
+    }
+    .proj-thumb-label {
+      position: absolute;
+      bottom: 12px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .proj-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 0.75rem; }
+    .proj-body h3 { font-size: 1.05rem; line-height: 1.3; }
+    .proj-body p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; flex: 1; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .proj-footer {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 1rem;
+    }
+    .proj-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap var(--transition);
+    }
+    .proj-link:hover { gap: 8px; }
+    .proj-link.secondary { color: var(--muted); }
+    .proj-link.secondary:hover { color: var(--text); }
+ 
+    /* ── Metric pill (for key results) ──────────────── */
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 3px 9px;
+      border-radius: 100px;
+      background: var(--teal-light);
+      color: var(--teal);
+      border: 1px solid #9FE1CB;
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- ── Navbar ──────────────────────────────────────────── -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <span class="nav-logo">alex<span>.</span>dev</span>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+ 
+<!-- ── Page Intro ─────────────────────────────────────── -->
+<div class="page-intro">
+  <div class="container">
+    <span class="label">My work</span>
+    <div class="divider" style="margin: 0.5rem 0;"></div>
+    <h1>Projects</h1>
+  </div>
+</div>
+ 
+<!-- ── Projects ──────────────────────────────────────── -->
+<section style="padding-top: 0;">
+  <div class="container">
+ 
+    <!-- Filters -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="nlp">NLP</button>
+      <button class="filter-btn" data-filter="cv">Computer Vision</button>
+      <button class="filter-btn" data-filter="timeseries">Time Series</button>
+      <button class="filter-btn" data-filter="mlops">MLOps</button>
+    </div>
+ 
+    <!-- Grid -->
+    <div class="projects-grid" id="grid">
+ 
+      <!-- Project 1 -->
+      <div class="proj-card reveal" data-categories="nlp">
+        <div class="proj-thumb">
+          <span class="proj-thumb-number">01</span>
+          <div class="proj-thumb-label">
+            <span class="label">NLP</span>
+            <span class="metric-pill">94.3% acc</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="tag tag-teal">NLP</span>
+            <span class="tag">BERT</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">FastAPI</span>
+          </div>
+          <h3>Sentiment Analysis at Scale</h3>
+          <p>Fine-tuned BERT-based model processing 2M+ reviews per day for a major e-commerce platform. Built inference API with under 40ms p99 latency.</p>
+        </div>
+        <div class="proj-footer">
+          <a href="#" class="proj-link">Case Study <span class="arrow">→</span></a>
+          <a href="#" class="proj-link secondary">GitHub</a>
+        </div>
+      </div>
+ 
+      <!-- Project 2 -->
+      <div class="proj-card reveal" data-categories="cv">
+        <div class="proj-thumb">
+          <span class="proj-thumb-number">02</span>
+          <div class="proj-thumb-label">
+            <span class="label">Computer Vision</span>
+            <span class="metric-pill">&lt;100ms</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="tag tag-teal">Computer Vision</span>
+            <span class="tag">YOLOv8</span>
+            <span class="tag">AWS Lambda</span>
+          </div>
+          <h3>Real-time Object Detection API</h3>
+          <p>Production-grade detection service supporting 12 object classes. Deployed serverlessly with auto-scaling, handling 50k requests/day.</p>
+        </div>
+        <div class="proj-footer">
+          <a href="#" class="proj-link">Case Study <span class="arrow">→</span></a>
+          <a href="#" class="proj-link secondary">GitHub</a>
+        </div>
+      </div>
+ 
+      <!-- Project 3 -->
+      <div class="proj-card reveal" data-categories="timeseries">
+        <div class="proj-thumb">
+          <span class="proj-thumb-number">03</span>
+          <div class="proj-thumb-label">
+            <span class="label">Time Series</span>
+            <span class="metric-pill">−32% stockouts</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="tag tag-teal">Forecasting</span>
+            <span class="tag">LSTM</span>
+            <span class="tag">XGBoost</span>
+          </div>
+          <h3>Demand Forecasting Engine</h3>
+          <p>Hybrid LSTM + XGBoost ensemble for a 200-store retail chain. Reduced stockout events by 32% and over-ordering by 18% year-on-year.</p>
+        </div>
+        <div class="proj-footer">
+          <a href="#" class="proj-link">Case Study <span class="arrow">→</span></a>
+          <a href="#" class="proj-link secondary">GitHub</a>
+        </div>
+      </div>
+ 
+      <!-- Project 4 -->
+      <div class="proj-card reveal" data-categories="nlp">
+        <div class="proj-thumb">
+          <span class="proj-thumb-number">04</span>
+          <div class="proj-thumb-label">
+            <span class="label">NLP</span>
+            <span class="metric-pill">Open Source</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="tag tag-teal">NLP</span>
+            <span class="tag">LLM</span>
+            <span class="tag">RAG</span>
+            <span class="tag">LangChain</span>
+          </div>
+          <h3>RAG-Powered Knowledge Assistant</h3>
+          <p>Retrieval-augmented chatbot over a 500k-document knowledge base. Reduced hallucination rate by 60% vs. vanilla GPT-4 baseline.</p>
+        </div>
+        <div class="proj-footer">
+          <a href="#" class="proj-link">Case Study <span class="arrow">→</span></a>
+          <a href="#" class="proj-link secondary">GitHub</a>
+        </div>
+      </div>
+ 
+      <!-- Project 5 -->
+      <div class="proj-card reveal" data-categories="mlops">
+        <div class="proj-thumb">
+          <span class="proj-thumb-number">05</span>
+          <div class="proj-thumb-label">
+            <span class="label">MLOps</span>
+            <span class="metric-pill">CI/CD</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="tag tag-teal">MLOps</span>
+            <span class="tag">MLflow</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Kubernetes</span>
+          </div>
+          <h3>ML Platform — Zero-downtime Serving</h3>
+          <p>Internal ML serving platform for A/B model rollouts with canary deployments, automated rollback, and full experiment tracking.</p>
+        </div>
+        <div class="proj-footer">
+          <a href="#" class="proj-link">Case Study <span class="arrow">→</span></a>
+          <a href="#" class="proj-link secondary">GitHub</a>
+        </div>
+      </div>
+ 
+      <!-- Project 6 -->
+      <div class="proj-card reveal" data-categories="cv timeseries">
+        <div class="proj-thumb">
+          <span class="proj-thumb-number">06</span>
+          <div class="proj-thumb-label">
+            <span class="label">CV + TS</span>
+            <span class="metric-pill">Kaggle Top 5%</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="tag tag-teal">Computer Vision</span>
+            <span class="tag">CNN</span>
+            <span class="tag">Anomaly Detection</span>
+          </div>
+          <h3>Manufacturing Defect Detector</h3>
+          <p>CNN-based visual inspection system achieving 99.1% precision on defect classification in industrial images. Deployed on edge hardware.</p>
+        </div>
+        <div class="proj-footer">
+          <a href="#" class="proj-link">Case Study <span class="arrow">→</span></a>
+          <a href="#" class="proj-link secondary">GitHub</a>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- ── Footer ────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <p>© 2024 Alex Morgan. Built with intention.</p>
+    <ul class="footer-links">
+      <li><a href="https://github.com" target="_blank">GitHub</a></li>
+      <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+      <li><a href="https://kaggle.com" target="_blank">Kaggle</a></li>
+    </ul>
+  </div>
+</footer>
+ 
+<script>
+  // Filter logic
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.proj-card').forEach(card => {
+        const cats = card.dataset.categories || '';
+        const show = f === 'all' || cats.includes(f);
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+ 
+  // Reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>

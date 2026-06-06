@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Alex Morgan</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── About layout ────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-photo-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+    }
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--muted);
+    }
+    .photo-initials {
+      font-size: 4rem;
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      opacity: 0.15;
+    }
+    .photo-caption {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 0.75rem 1rem;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+ 
+    /* ── Bio text ────────────────────────────────────── */
+    .about-text > * + * { margin-top: 1.2rem; }
+    .about-text p { color: var(--muted); line-height: 1.85; }
+    .about-text p strong { color: var(--text); font-weight: 500; }
+ 
+    /* ── Skills grid ─────────────────────────────────── */
+    .skills-section { margin-top: 3.5rem; }
+    .skills-section h3 { margin-bottom: 1.2rem; }
+    .skill-group + .skill-group { margin-top: 1.8rem; }
+    .skill-group-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+ 
+    /* ── Timeline ────────────────────────────────────── */
+    .timeline { position: relative; margin-top: 4rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px; top: 8px; bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .tl-item {
+      position: relative;
+      padding-left: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+    .tl-dot {
+      position: absolute;
+      left: 0; top: 8px;
+      width: 15px; height: 15px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--border);
+    }
+    .tl-item:first-child .tl-dot {
+      border-color: var(--teal);
+      background: var(--teal-light);
+    }
+    .tl-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.3rem;
+    }
+    .tl-date {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .tl-item h4 { font-weight: 500; margin-bottom: 2px; }
+    .tl-company { font-size: 0.875rem; color: var(--teal); font-weight: 500; }
+    .tl-desc { font-size: 0.875rem; color: var(--muted); margin-top: 0.4rem; line-height: 1.65; }
+ 
+    /* ── Side panel ──────────────────────────────────── */
+    .side-panel { display: flex; flex-direction: column; gap: 1.5rem; }
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .info-card-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .info-card-header span { font-size: 0.875rem; font-weight: 500; }
+    .info-rows { padding: 0.75rem 1.25rem; }
+    .info-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row span:first-child { color: var(--muted); }
+    .info-row span:last-child { font-weight: 500; }
+ 
+    .download-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.85rem;
+      background: var(--text);
+      color: var(--bg);
+      border-radius: var(--radius);
+      transition: background var(--transition);
+    }
+    .download-btn:hover { background: #333; }
+ 
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo-wrap { aspect-ratio: 16/9; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- ── Navbar ──────────────────────────────────────────── -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <span class="nav-logo">alex<span>.</span>dev</span>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+ 
+<!-- ── Page Intro ─────────────────────────────────────── -->
+<div class="page-intro">
+  <div class="container">
+    <span class="label">About me</span>
+    <div class="divider" style="margin: 0.5rem 0;"></div>
+    <h1>Hello, I'm Alex.</h1>
+  </div>
+</div>
+ 
+<!-- ── About Section ─────────────────────────────────── -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="about-grid">
+ 
+      <!-- Left: Bio + Skills + Timeline -->
+      <div>
+        <div class="about-text reveal">
+          <p>
+            I'm a <strong>Data Scientist and ML Engineer</strong> based in San Francisco, CA.
+            I specialise in building production-ready machine learning systems that turn
+            raw data into business-critical insights.
+          </p>
+          <p>
+            My background spans <strong>natural language processing, computer vision, and
+            time-series forecasting</strong>. I care deeply about the full lifecycle —
+            data quality, model interpretability, and clean deployment pipelines.
+          </p>
+          <p>
+            When I'm not writing Python, I contribute to open-source projects, write on
+            Medium about MLOps practices, and experiment with generative models.
+          </p>
+        </div>
+ 
+        <!-- Skills -->
+        <div class="skills-section reveal">
+          <h3>Technical Skills</h3>
+          <div class="skill-group">
+            <p class="skill-group-label">Core Languages</p>
+            <div class="skill-tags">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">R</span>
+              <span class="tag">Bash</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-label">ML / Deep Learning</p>
+            <div class="skill-tags">
+              <span class="tag tag-teal">PyTorch</span>
+              <span class="tag tag-teal">TensorFlow</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">Hugging Face</span>
+              <span class="tag">XGBoost</span>
+              <span class="tag">LightGBM</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-label">Data Engineering</p>
+            <div class="skill-tags">
+              <span class="tag">Spark</span>
+              <span class="tag">Airflow</span>
+              <span class="tag">dbt</span>
+              <span class="tag">Kafka</span>
+              <span class="tag">Pandas</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-label">MLOps & Cloud</p>
+            <div class="skill-tags">
+              <span class="tag">AWS SageMaker</span>
+              <span class="tag">MLflow</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">FastAPI</span>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Timeline -->
+        <div class="timeline reveal">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-meta">
+              <span class="tl-date">2022 — Present</span>
+              <span class="tag tag-teal">Current</span>
+            </div>
+            <h4>Senior ML Engineer</h4>
+            <p class="tl-company">DataCore Inc.</p>
+            <p class="tl-desc">Led a team of 4 engineers building real-time recommendation and anomaly detection systems serving 10M+ users.</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-meta">
+              <span class="tl-date">2020 — 2022</span>
+            </div>
+            <h4>Data Scientist</h4>
+            <p class="tl-company">FinTech Startup (Series B)</p>
+            <p class="tl-desc">Built fraud detection pipelines and credit scoring models. Reduced false-positives by 41%.</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-meta">
+              <span class="tl-date">2018 — 2020</span>
+            </div>
+            <h4>M.Sc. Data Science</h4>
+            <p class="tl-company">Stanford University</p>
+            <p class="tl-desc">Thesis on transformer-based multi-label text classification. GPA: 3.9/4.0</p>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Right: Side Panel -->
+      <div class="side-panel">
+ 
+        <div class="about-photo-wrap reveal">
+          <div class="photo-placeholder">
+            <span class="photo-initials">AM</span>
+          </div>
+          <div class="photo-caption">Replace with your photo — swap the &lt;div&gt; for an &lt;img&gt; tag</div>
+        </div>
+ 
+        <div class="info-card reveal">
+          <div class="info-card-header">
+            <span>Quick info</span>
+          </div>
+          <div class="info-rows">
+            <div class="info-row"><span>Location</span><span>San Francisco, CA</span></div>
+            <div class="info-row"><span>Availability</span><span style="color:var(--teal)">Open to work</span></div>
+            <div class="info-row"><span>Focus</span><span>NLP · CV · MLOps</span></div>
+            <div class="info-row"><span>Experience</span><span>4+ years</span></div>
+            <div class="info-row"><span>Education</span><span>M.Sc. Stanford</span></div>
+          </div>
+        </div>
+ 
+        <a href="#" class="download-btn reveal">
+          ↓ &nbsp; Download Resume
+        </a>
+ 
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- ── Footer ────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <p>© 2024 Alex Morgan. Built with intention.</p>
+    <ul class="footer-links">
+      <li><a href="https://github.com" target="_blank">GitHub</a></li>
+      <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+      <li><a href="https://kaggle.com" target="_blank">Kaggle</a></li>
+    </ul>
+  </div>
+</footer>
+ 
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
