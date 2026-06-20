@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register · Yash P Shetty</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="register-page">
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><span class="logo-mark">YS</span><span>yash<span style="color:var(--primary)">.</span>portfolio</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="register.html" class="nav-cta active">Register</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="page-intro">
+    <div class="container reveal">
+      <span class="label">Registration</span>
+      <h1>Register to Download Resume</h1>
+      <p>Fill this form once. Your details will be saved in MySQL, then the resume download will be allowed automatically through Flask session.</p>
+    </div>
+  </div>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="register-grid">
+        <div class="form-card reveal">
+          <form id="registerForm" action="/register" method="POST">
+            <div class="form-grid">
+              <div class="form-group full"><label class="form-label" for="full_name">Full Name</label><input class="form-control" id="full_name" name="full_name" type="text" placeholder="Enter your full name" required></div>
+              <div class="form-group"><label class="form-label" for="email">Email</label><input class="form-control" id="email" name="email" type="email" placeholder="example@gmail.com" required></div>
+              <div class="form-group"><label class="form-label" for="phone">Phone Number</label><input class="form-control" id="phone" name="phone" type="tel" placeholder="Enter phone number" required></div>
+              <div class="form-group"><label class="form-label" for="purpose">Purpose</label><select class="form-control" id="purpose" name="purpose" required><option value="">Select purpose</option><option>Resume Download</option><option>Project Discussion</option><option>Internship / Hiring</option><option>Collaboration</option><option>Other</option></select></div>
+              <div class="form-group"><label class="form-label" for="linkedin">LinkedIn Profile</label><input class="form-control" id="linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/..."></div>
+              <div class="form-group full"><label class="form-label" for="github">GitHub Profile</label><input class="form-control" id="github" name="github" type="url" placeholder="https://github.com/..."></div>
+              <div class="form-group full"><label class="form-label" for="message">Message</label><textarea class="form-control" id="message" name="message" placeholder="Write a short message..."></textarea></div>
+            </div>
+            <button class="btn btn-primary submit-btn" type="submit">Register & Download Resume <span class="arrow">→</span></button>
+          </form>
+        </div>
+
+        <aside class="side-panel reveal">
+          <div class="info-card">
+            <span class="label">Protected Resume</span>
+            <p style="margin:.7rem 0 1rem;">The resume PDF is stored inside the private folder and is sent only by the Flask route after successful registration.</p>
+            <a class="btn btn-outline" href="contact.html" style="width:100%;">Back to Contact</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>© <span id="year"></span> Yash P Shetty.</p>
+    <ul class="footer-links">
+      <li><a href="mailto:shettyyashp@gmail.com">Email</a></li>
+      <li><a href="https://github.com/yashpshetty" target="_blank" rel="noreferrer">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/yash-p-shetty-9a8aa0354" target="_blank" rel="noreferrer">LinkedIn</a></li>
+      <li><a href="/download-resume">Resume</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -3,332 +3,122 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yash P Shetty · Electronics & Communication Engineer</title>
+  <title>Yash P Shetty · ECE Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* ── Hero ───────────────────────────────────────────── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 58px;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 4rem;
-      align-items: center;
-      width: 100%;
-    }
-    .hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 1.6rem;
-    }
-    .hero-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--teal);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.7); }
-    }
-    .hero h1 { margin-bottom: 1.2rem; }
-    .hero-desc {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 480px;
-      margin-bottom: 2.2rem;
-      line-height: 1.75;
-    }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .hero-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .stat-box {
-      background: var(--surface);
-      padding: 1.8rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .stat-num {
-      font-size: 2.2rem;
-      font-weight: 500;
-      letter-spacing: -0.04em;
-      line-height: 1;
-    }
-    .stat-num span { color: var(--teal); }
-    .stat-label { font-size: 0.8rem; color: var(--muted); }
- 
-    /* ── Marquee strip ──────────────────────────────────── */
-    .marquee-strip {
-      overflow: hidden;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 0;
-      background: var(--surface);
-    }
-    .marquee-track {
-      display: flex;
-      gap: 3rem;
-      animation: marquee 24s linear infinite;
-      width: max-content;
-    }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    .marquee-item {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--muted);
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .marquee-item::before {
-      content: '';
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: var(--teal);
-    }
- 
-    /* ── Featured section ───────────────────────────────── */
-    .featured-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 1.5rem;
-    }
-    .featured-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      transition: border-color var(--transition), transform var(--transition);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .featured-card:hover {
-      border-color: #BBBAB4;
-      transform: translateY(-3px);
-    }
-    .project-num {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .featured-card h3 { font-size: 1.25rem; }
-    .featured-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
-    .card-footer {
-      margin-top: auto;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .card-footer a {
-      font-size: 0.82rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      transition: gap var(--transition);
-    }
-    .card-footer a:hover { gap: 10px; }
-    .arrow { display: inline-block; transition: transform var(--transition); }
-    a:hover .arrow { transform: translateX(4px); }
- 
-    @media (max-width: 900px) {
-      .hero-grid, .featured-grid { grid-template-columns: 1fr; }
-      .hero-stats { max-width: 480px; }
-    }
-  </style>
 </head>
-<body>
- 
-<!-- ── Navbar ─────────────────────────────────────────────── -->
+<body class="home-page">
 <nav class="navbar">
   <div class="nav-inner">
-    <span class="nav-logo">alex<span>.</span>dev</span>
+    <a class="nav-logo" href="index.html"><span class="logo-mark">YS</span><span>yash<span style="color:var(--primary)">.</span>portfolio</span></a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="register.html" class="nav-cta">Register</a></li>
     </ul>
   </div>
 </nav>
- 
-<!-- ── Hero ──────────────────────────────────────────────── -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-grid">
- 
-      <div class="hero-content">
-        <div class="hero-eyebrow">
-          <span class="hero-dot"></span>
-          <span class="label">Available for work</span>
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <span class="label">Electronics & Communication Engineering Student</span>
+          <h1>Hi, I'm <span>Yash P Shetty</span><br>building AI, IoT & embedded projects.</h1>
+          <p class="hero-desc">Motivated ECE student from NMAM Institute of Technology with interest in IoT, VLSI, automation, signal processing, embedded technologies and AI-based healthcare applications.</p>
+          <div class="hero-actions">
+            <a href="projects.html" class="btn btn-primary">View Projects <span class="arrow">→</span></a>
+            <a href="/download-resume" class="btn btn-outline">Download Resume</a>
+            <a href="register.html" class="btn btn-outline">Register for Communication</a>
+          </div>
+          <p class="hero-note">Resume download is protected. Visitors must register first, then the resume will download.</p>
         </div>
-        <h1>Data Scientist<br>&amp; ML Engineer</h1>
-        <p class="hero-desc">
-          I build end-to-end machine learning systems — from messy raw data to
-          deployed production models. Focused on NLP, computer vision, and
-          applied ML at scale.
-        </p>
-        <div class="hero-actions">
-          <a href="projects.html" class="btn btn-primary">
-            View Projects <span class="arrow">→</span>
-          </a>
-          <a href="about.html" class="btn btn-outline">About Me</a>
-        </div>
-      </div>
- 
-      <div class="hero-stats reveal">
-        <div class="stat-box">
-          <span class="stat-num">4<span>+</span></span>
-          <span class="stat-label">Years of experience</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num">18<span>+</span></span>
-          <span class="stat-label">ML projects shipped</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num">12<span>+</span></span>
-          <span class="stat-label">Datasets published</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num">3<span>k</span></span>
-          <span class="stat-label">GitHub stars earned</span>
+
+        <div class="hero-panel reveal">
+          <div class="profile-orb">
+            <div>
+              <span class="label">Portfolio Profile</span>
+              <div class="profile-initials">YS</div>
+            </div>
+            <div class="contact-mini">
+              <p>Based in Mangalore, Karnataka</p>
+              <a href="mailto:shettyyashp@gmail.com">shettyyashp@gmail.com</a>
+              <a href="tel:+919008008731">+91 9008008731</a>
+              <a href="https://github.com/yashpshetty" target="_blank" rel="noreferrer">github.com/yashpshetty</a>
+            </div>
+          </div>
         </div>
       </div>
- 
+
+      <div class="stats-grid reveal">
+        <div class="stat-card"><span class="stat-num">2027</span><span class="stat-label">B.Tech ECE Graduation</span></div>
+        <div class="stat-card"><span class="stat-num">2</span><span class="stat-label">Internship Experiences</span></div>
+        <div class="stat-card"><span class="stat-num">5+</span><span class="stat-label">Technical Projects</span></div>
+        <div class="stat-card"><span class="stat-num">4</span><span class="stat-label">Certifications</span></div>
+      </div>
     </div>
-  </div>
-</section>
- 
-<!-- ── Marquee ────────────────────────────────────────────── -->
-<div class="marquee-strip">
-  <div class="marquee-track" id="track">
-    <!-- JS doubles the items for seamless loop -->
-  </div>
-</div>
- 
-<!-- ── Featured Projects ─────────────────────────────────── -->
-<section>
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-header-left">
-        <span class="label">Selected work</span>
-        <div class="divider"></div>
-        <h2>Featured Projects</h2>
+  </section>
+
+  <div class="marquee-strip"><div class="marquee-track" id="track"></div></div>
+
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <span class="label">Selected work</span>
+          <h2>Featured Projects</h2>
+          <p>Projects from AI, IoT, medical imaging, LLMs and Python application development.</p>
+        </div>
+        <a href="projects.html" class="btn btn-outline">All Projects <span class="arrow">→</span></a>
       </div>
-      <a href="projects.html" class="btn btn-outline">All Projects <span class="arrow">→</span></a>
+
+      <div class="featured-grid">
+        <article class="project-card reveal">
+          <div class="project-top"><span class="project-number">01</span><span class="tag tag-primary">AI + IoT</span></div>
+          <div class="project-body">
+            <div class="project-tags"><span class="tag tag-primary">C</span><span class="tag">Python</span><span class="tag">Edge Computing</span></div>
+            <h3>Multi-Modal Distress Detection Framework</h3>
+            <p>Emergency assistance framework using silent gestures, audio signals and Edge-IoT communication for low-latency alerts.</p>
+            <div class="project-footer"><span class="label">Major Project</span><a href="projects.html" class="project-link">Read more →</a></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-top"><span class="project-number">02</span><span class="tag tag-primary">Medical AI</span></div>
+          <div class="project-body">
+            <div class="project-tags"><span class="tag tag-primary">Python</span><span class="tag">CNN</span><span class="tag">CV</span></div>
+            <h3>Brain Tumour Detection using MRI</h3>
+            <p>Deep-learning based medical imaging project for MRI preprocessing, CNN training and tumor classification.</p>
+            <div class="project-footer"><span class="label">Deep Learning</span><a href="projects.html" class="project-link">Read more →</a></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-top"><span class="project-number">03</span><span class="tag tag-primary">LLM</span></div>
+          <div class="project-body">
+            <div class="project-tags"><span class="tag tag-primary">Hugging Face</span><span class="tag">NLP</span></div>
+            <h3>Code-Converter Application</h3>
+            <p>LLM-powered application that converts source code across five programming languages using transformer models.</p>
+            <div class="project-footer"><span class="label">NLP</span><a href="projects.html" class="project-link">Read more →</a></div>
+          </div>
+        </article>
+      </div>
     </div>
- 
-    <div class="featured-grid">
- 
-      <div class="featured-card reveal">
-        <span class="project-num">01</span>
-        <div class="project-tags">
-          <span class="tag tag-teal">NLP</span>
-          <span class="tag">Transformers</span>
-          <span class="tag">PyTorch</span>
-        </div>
-        <h3>Sentiment Analysis at Scale</h3>
-        <p>Fine-tuned BERT-based model processing 2M+ reviews/day for an e-commerce platform. Achieved 94.3% accuracy, down from 78% baseline.</p>
-        <div class="card-footer">
-          <span class="label">2024</span>
-          <a href="projects.html">View Case Study <span class="arrow">→</span></a>
-        </div>
-      </div>
- 
-      <div class="featured-card reveal">
-        <span class="project-num">02</span>
-        <div class="project-tags">
-          <span class="tag tag-teal">Computer Vision</span>
-          <span class="tag">YOLO</span>
-        </div>
-        <h3>Real-time Object Detection API</h3>
-        <p>Production-grade detection service with sub-100ms latency. Deployed on AWS Lambda + ECS.</p>
-        <div class="card-footer">
-          <span class="label">2024</span>
-          <a href="projects.html">View Case Study <span class="arrow">→</span></a>
-        </div>
-      </div>
- 
-      <div class="featured-card reveal">
-        <span class="project-num">03</span>
-        <div class="project-tags">
-          <span class="tag tag-teal">Time Series</span>
-          <span class="tag">Forecasting</span>
-        </div>
-        <h3>Demand Forecasting Engine</h3>
-        <p>Hybrid LSTM + XGBoost pipeline reducing stockout events by 32% for a retail chain.</p>
-        <div class="card-footer">
-          <span class="label">2023</span>
-          <a href="projects.html">View Case Study <span class="arrow">→</span></a>
-        </div>
-      </div>
- 
-    </div>
-  </div>
-</section>
- 
-<!-- ── Footer ─────────────────────────────────────────────── -->
+  </section>
+</main>
+
 <footer>
   <div class="footer-inner">
-    <p>© 2024 Alex Morgan. Built with intention.</p>
+    <p>© <span id="year"></span> Yash P Shetty. Built with HTML, CSS, JavaScript, Flask and MySQL.</p>
     <ul class="footer-links">
-      <li><a href="https://github.com" target="_blank">GitHub</a></li>
-      <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-      <li><a href="https://kaggle.com" target="_blank">Kaggle</a></li>
+      <li><a href="mailto:shettyyashp@gmail.com">Email</a></li>
+      <li><a href="https://github.com/yashpshetty" target="_blank" rel="noreferrer">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/yash-p-shetty-9a8aa0354" target="_blank" rel="noreferrer">LinkedIn</a></li>
+      <li><a href="/download-resume">Resume</a></li>
     </ul>
   </div>
 </footer>
- 
-<script>
-  // Marquee content
-  const skills = [
-    'Python', 'PyTorch', 'TensorFlow', 'Scikit-learn', 'Pandas',
-    'Spark', 'AWS SageMaker', 'Docker', 'FastAPI', 'SQL',
-    'Hugging Face', 'MLflow', 'Airflow', 'Kubernetes', 'dbt'
-  ];
-  const track = document.getElementById('track');
-  const doubled = [...skills, ...skills];
-  doubled.forEach(s => {
-    const el = document.createElement('span');
-    el.className = 'marquee-item';
-    el.textContent = s;
-    track.appendChild(el);
-  });
- 
-  // Reveal on scroll
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-    });
-  }, { threshold: 0.15 });
-  reveals.forEach(r => observer.observe(r));
- 
-  // Auto-mark active nav link
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === location.pathname.split('/').pop() || (a.getAttribute('href') === 'index.html' && location.pathname.endsWith('/')));
-  });
-</script>
+<script src="script.js"></script>
 </body>
 </html>

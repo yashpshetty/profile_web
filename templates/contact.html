@@ -3,319 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact · Alex Morgan</title>
+  <title>Contact · Yash P Shetty</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* ── Contact layout ──────────────────────────────── */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 5rem;
-      align-items: start;
-    }
- 
-    /* ── Form ────────────────────────────────────────── */
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 1.4rem;
-    }
-    .form-label {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--muted);
-    }
-    .form-control {
-      width: 100%;
-      padding: 13px 16px;
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      color: var(--text);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      outline: none;
-      transition: border-color var(--transition);
-      resize: vertical;
-    }
-    .form-control::placeholder { color: #BABAB4; }
-    .form-control:focus { border-color: var(--text); }
-    textarea.form-control { min-height: 140px; line-height: 1.6; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
- 
-    .submit-btn {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px;
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      font-weight: 500;
-      background: var(--text);
-      color: var(--bg);
-      border: none;
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: background var(--transition), transform var(--transition);
-    }
-    .submit-btn:hover { background: #333; transform: translateY(-1px); }
-    .submit-btn:active { transform: translateY(0); }
- 
-    .success-msg {
-      display: none;
-      margin-top: 1rem;
-      padding: 14px 16px;
-      background: var(--teal-light);
-      border: 1px solid #9FE1CB;
-      border-radius: var(--radius);
-      font-size: 0.875rem;
-      color: var(--teal);
-    }
- 
-    /* ── Right panel ──────────────────────────────────── */
-    .contact-side { display: flex; flex-direction: column; gap: 1.5rem; }
- 
-    .availability-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      background: var(--teal-light);
-      border: 1px solid #9FE1CB;
-      border-radius: 100px;
-      font-size: 0.8rem;
-      color: var(--teal);
-      font-weight: 500;
-      width: fit-content;
-    }
-    .avail-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--teal);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
- 
-    .contact-links-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .clink-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.25rem;
-      border-bottom: 1px solid var(--border);
-      transition: background var(--transition);
-      text-decoration: none;
-    }
-    .clink-row:last-child { border-bottom: none; }
-    .clink-row:hover { background: var(--surface-alt); }
-    .clink-left { display: flex; align-items: center; gap: 12px; }
-    .clink-icon {
-      width: 36px; height: 36px;
-      border-radius: 8px;
-      background: var(--accent-soft);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      font-weight: 500;
-    }
-    .clink-info p:first-child { font-size: 0.875rem; font-weight: 500; }
-    .clink-info p:last-child { font-size: 0.78rem; color: var(--muted); }
-    .clink-arrow { color: var(--muted); font-size: 0.875rem; transition: transform var(--transition); }
-    .clink-row:hover .clink-arrow { transform: translate(3px, -3px); }
- 
-    .response-note {
-      padding: 1rem 1.25rem;
-      background: var(--surface-alt);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-    }
-    .response-note p { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
- 
-    @media (max-width: 900px) {
-      .contact-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
-<body>
- 
-<!-- ── Navbar ──────────────────────────────────────────── -->
+<body class="contact-page">
 <nav class="navbar">
   <div class="nav-inner">
-    <span class="nav-logo">alex<span>.</span>dev</span>
+    <a class="nav-logo" href="index.html"><span class="logo-mark">YS</span><span>yash<span style="color:var(--primary)">.</span>portfolio</span></a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="contact.html" class="active nav-cta">Contact</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="register.html" class="nav-cta">Register</a></li>
     </ul>
   </div>
 </nav>
- 
-<!-- ── Page Intro ─────────────────────────────────────── -->
-<div class="page-intro">
-  <div class="container">
-    <span class="label">Get in touch</span>
-    <div class="divider" style="margin: 0.5rem 0;"></div>
-    <h1>Let's Talk.</h1>
-  </div>
-</div>
- 
-<!-- ── Contact Section ───────────────────────────────── -->
-<section style="padding-top: 0;">
-  <div class="container">
-    <div class="contact-grid">
- 
-      <!-- Form -->
-      <div class="reveal">
-        <p style="color:var(--muted); margin-bottom: 2rem; line-height: 1.8; font-size: 1.05rem;">
-          Whether you have a project in mind, want to collaborate on research, or just want to say hello — my inbox is always open.
-        </p>
- 
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="fname">First Name</label>
-            <input id="fname" type="text" class="form-control" placeholder="Jane" />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="lname">Last Name</label>
-            <input id="lname" type="text" class="form-control" placeholder="Smith" />
-          </div>
-        </div>
- 
-        <div class="form-group">
-          <label class="form-label" for="email">Email Address</label>
-          <input id="email" type="email" class="form-control" placeholder="jane@company.com" />
-        </div>
- 
-        <div class="form-group">
-          <label class="form-label" for="subject">Subject</label>
-          <input id="subject" type="text" class="form-control" placeholder="Project inquiry / Collaboration / Other" />
-        </div>
- 
-        <div class="form-group">
-          <label class="form-label" for="message">Message</label>
-          <textarea id="message" class="form-control" placeholder="Tell me about your project or idea..."></textarea>
-        </div>
- 
-        <button class="submit-btn" onclick="handleSubmit()">
-          Send Message &nbsp; →
-        </button>
-        <div class="success-msg" id="success">
-          ✓ &nbsp; Message received! I'll get back to you within 48 hours.
-        </div>
-      </div>
- 
-      <!-- Right Side -->
-      <div class="contact-side reveal">
- 
-        <div class="availability-badge">
-          <span class="avail-dot"></span>
-          Available for new projects
-        </div>
- 
-        <div class="contact-links-card">
-          <a href="mailto:alex@alexdev.io" class="clink-row">
-            <div class="clink-left">
-              <div class="clink-icon">✉</div>
-              <div class="clink-info">
-                <p>Email</p>
-                <p>alex@alexdev.io</p>
-              </div>
-            </div>
-            <span class="clink-arrow">↗</span>
-          </a>
-          <a href="https://linkedin.com" target="_blank" class="clink-row">
-            <div class="clink-left">
-              <div class="clink-icon">in</div>
-              <div class="clink-info">
-                <p>LinkedIn</p>
-                <p>/in/alexmorgan</p>
-              </div>
-            </div>
-            <span class="clink-arrow">↗</span>
-          </a>
-          <a href="https://github.com" target="_blank" class="clink-row">
-            <div class="clink-left">
-              <div class="clink-icon">gh</div>
-              <div class="clink-info">
-                <p>GitHub</p>
-                <p>@alexmorgan-ml</p>
-              </div>
-            </div>
-            <span class="clink-arrow">↗</span>
-          </a>
-          <a href="https://kaggle.com" target="_blank" class="clink-row">
-            <div class="clink-left">
-              <div class="clink-icon">kg</div>
-              <div class="clink-info">
-                <p>Kaggle</p>
-                <p>@alex_morgan</p>
-              </div>
-            </div>
-            <span class="clink-arrow">↗</span>
-          </a>
-        </div>
- 
-        <div class="response-note">
-          <p>I typically respond within <strong style="color:var(--text)">24–48 hours</strong>. For urgent inquiries, feel free to reach out directly via LinkedIn.</p>
-        </div>
- 
-      </div>
- 
+
+<main>
+  <div class="page-intro">
+    <div class="container reveal">
+      <span class="label">Get in touch</span>
+      <h1>Contact Me</h1>
+      <p>Use the contact links below or fill the message form. For continued communication and resume download, visitors must register first.</p>
     </div>
   </div>
-</section>
- 
-<!-- ── Footer ────────────────────────────────────────── -->
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="form-card reveal">
+          <span class="label">Send a Message</span>
+          <p style="margin:.7rem 0 1.3rem;">For More Communication, Please Register First.</p>
+          <form id="contactForm" action="/contact" method="POST">
+            <div class="form-grid">
+              <div class="form-group"><label class="form-label" for="fname">First Name</label><input class="form-control" id="fname" name="fname" type="text" placeholder="Enter first name" required></div>
+              <div class="form-group"><label class="form-label" for="lname">Last Name</label><input class="form-control" id="lname" name="lname" type="text" placeholder="Enter last name"></div>
+              <div class="form-group full"><label class="form-label" for="email">Email</label><input class="form-control" id="email" name="email" type="email" placeholder="example@gmail.com" required></div>
+              <div class="form-group full"><label class="form-label" for="subject">Subject</label><input class="form-control" id="subject" name="subject" type="text" placeholder="Project / Internship / Collaboration" required></div>
+              <div class="form-group full"><label class="form-label" for="message">Message</label><textarea class="form-control" id="message" name="message" placeholder="Write your message here..." required></textarea></div>
+            </div>
+            <button class="btn btn-primary submit-btn" type="submit">Send Message <span class="arrow">→</span></button>
+          </form>
+        </div>
+
+        <aside class="side-panel reveal">
+          <div class="info-card">
+            <span class="label">Direct Contact</span>
+            <div class="contact-links-card" style="margin-top:1rem;">
+              <a href="mailto:shettyyashp@gmail.com" class="clink-row"><div class="clink-left"><span class="clink-icon">✉</span><div class="clink-info"><p>Email</p><p>shettyyashp@gmail.com</p></div></div><span>↗</span></a>
+              <a href="tel:+919008008731" class="clink-row"><div class="clink-left"><span class="clink-icon">☎</span><div class="clink-info"><p>Phone</p><p>+91 9008008731</p></div></div><span>↗</span></a>
+              <a href="https://linkedin.com/in/yash-p-shetty-9a8aa0354" target="_blank" rel="noreferrer" class="clink-row"><div class="clink-left"><span class="clink-icon">in</span><div class="clink-info"><p>LinkedIn</p><p>linkedin.com/in/yash-p-shetty-9a8aa0354</p></div></div><span>↗</span></a>
+              <a href="https://github.com/yashpshetty" target="_blank" rel="noreferrer" class="clink-row"><div class="clink-left"><span class="clink-icon">gh</span><div class="clink-info"><p>GitHub</p><p>github.com/yashpshetty</p></div></div><span>↗</span></a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <span class="label">Register First</span>
+            <p style="margin:.7rem 0 1rem;">Registration is required before downloading my resume or continuing professional communication.</p>
+            <a class="btn btn-primary" href="register.html" style="width:100%;">Open Register Page</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
 <footer>
   <div class="footer-inner">
-    <p>© 2024 Alex Morgan. Built with intention.</p>
+    <p>© <span id="year"></span> Yash P Shetty.</p>
     <ul class="footer-links">
-      <li><a href="https://github.com" target="_blank">GitHub</a></li>
-      <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-      <li><a href="https://kaggle.com" target="_blank">Kaggle</a></li>
+      <li><a href="mailto:shettyyashp@gmail.com">Email</a></li>
+      <li><a href="https://github.com/yashpshetty" target="_blank" rel="noreferrer">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/yash-p-shetty-9a8aa0354" target="_blank" rel="noreferrer">LinkedIn</a></li>
+      <li><a href="/download-resume">Resume</a></li>
     </ul>
   </div>
 </footer>
- 
-<script>
-  function handleSubmit() {
-    const fname = document.getElementById('fname').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-    if (!fname || !email || !message) {
-      alert('Please fill in at least your name, email, and message.');
-      return;
-    }
-    document.getElementById('success').style.display = 'block';
-    // Reset form (in a real app you'd POST to a backend/Formspree here)
-    ['fname','lname','email','subject','message'].forEach(id => document.getElementById(id).value = '');
-  }
- 
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(r => observer.observe(r));
-</script>
+<script src="script.js"></script>
 </body>
 </html>

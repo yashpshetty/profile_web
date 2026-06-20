@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects · Yash P Shetty</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="projects-page">
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><span class="logo-mark">YS</span><span>yash<span style="color:var(--primary)">.</span>portfolio</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="register.html" class="nav-cta">Register</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="page-intro">
+    <div class="container reveal">
+      <span class="label">My Work</span>
+      <h1>Projects</h1>
+      <p>A collection of my technical projects in AI, IoT, embedded systems, medical imaging, LLMs and Python application development.</p>
+    </div>
+  </div>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="filters reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="iot">IoT</button>
+        <button class="filter-btn" data-filter="medical">Medical</button>
+        <button class="filter-btn" data-filter="llm">LLM</button>
+        <button class="filter-btn" data-filter="python">Python</button>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card reveal" data-categories="ai iot embedded">
+          <div class="project-top"><span class="project-number">01</span><span class="tag tag-primary">AI + IoT</span></div>
+          <div class="project-body">
+            <div class="project-tags"><span class="tag tag-primary">C</span><span class="tag">Python</span><span class="tag">AI</span><span class="tag">Edge Computing</span></div>
+            <h3>Multi-Modal AI-Based Silent and Audio Distress Detection Framework</h3>
+            <p>Designed a multi-modal AI framework to detect emergency distress situations using silent gestures and audio signals with Edge-IoT communication for low-latency alerts.</p>
+            <div class="project-footer"><span class="label">Emergency Assistance</span><a href="https://github.com/yashpshetty" target="_blank" rel="noreferrer" class="project-link">GitHub →</a></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-categories="ai medical python">
+          <div class="project-top"><span class="project-number">02</span><span class="tag tag-primary">Medical AI</span></div>
+          <div class="project-body">
+            <div class="project-tags"><span class="tag tag-primary">Python</span><span class="tag">Deep Learning</span><span class="tag">Computer Vision</span></div>
+            <h3>Brain Tumour Detection using MRI Image</h3>
+            <p>Developed a medical imaging system for automated brain tumor detection from MRI scans using preprocessing, feature extraction and CNN-based classification.</p>
+            <div class="project-footer"><span class="label">Healthcare</span><a href="https://github.com/yashpshetty" target="_blank" rel="noreferrer" class="project-link">GitHub →</a></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-categories="llm python ai">
+          <div class="project-top"><span class="project-number">03</span><span class="tag tag-primary">LLM</span></div>
+          <div class="project-body">
+            <div class="project-tags"><span class="tag tag-primary">Python</span><span class="tag">LLMs</span><span class="tag">Hugging Face</span><span class="tag">NLP</span></div>
+            <h3>Code-Converter Application</h3>
+            <p>Built an LLM-powered code conversion application capable of translating source code between five programming languages using transformer models.</p>
+            <div class="project-footer"><span class="label">Developer Tool</span><a href="https://github.com/yashpshetty" target="_blank" rel="noreferrer" class="project-link">GitHub →</a></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-categories="llm medical ai python">
+          <div class="project-top"><span class="project-number">04</span><span class="tag tag-primary">RAG</span></div>
+          <div class="project-body">
+            <div class="project-tags"><span class="tag tag-primary">Python</span><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Hugging Face</span></div>
+            <h3>Medical AI Assistant Application</h3>
+            <p>Built an intelligent Medical AI Assistant using LLMs and Retrieval-Augmented Generation for context-aware healthcare information and semantic search.</p>
+            <div class="project-footer"><span class="label">Medical Chatbot</span><a href="https://github.com/yashpshetty" target="_blank" rel="noreferrer" class="project-link">GitHub →</a></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-categories="python">
+          <div class="project-top"><span class="project-number">05</span><span class="tag tag-primary">Python</span></div>
+          <div class="project-body">
+            <div class="project-tags"><span class="tag tag-primary">Python</span><span class="tag">Data Handling</span><span class="tag">Application</span></div>
+            <h3>Nutrient Calculator</h3>
+            <p>Created a Python application for determining and tracking daily nutritional intake based on user input, with focus on algorithmic design and data handling.</p>
+            <div class="project-footer"><span class="label">Utility App</span><a href="https://github.com/yashpshetty" target="_blank" rel="noreferrer" class="project-link">GitHub →</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>© <span id="year"></span> Yash P Shetty.</p>
+    <ul class="footer-links">
+      <li><a href="mailto:shettyyashp@gmail.com">Email</a></li>
+      <li><a href="https://github.com/yashpshetty" target="_blank" rel="noreferrer">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/yash-p-shetty-9a8aa0354" target="_blank" rel="noreferrer">LinkedIn</a></li>
+      <li><a href="/download-resume">Resume</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
