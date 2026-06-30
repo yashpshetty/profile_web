@@ -23,8 +23,6 @@ CREATE TABLE IF NOT EXISTS contact_messages (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- To view registered users:
--- SELECT * FROM registrations ORDER BY registered_at DESC;
-
--- To view contact messages:
--- SELECT * FROM contact_messages ORDER BY created_at DESC;
+-- Use these queries in phpMyAdmin SQL tab to view data:
+SELECT * FROM registrations ORDER BY registered_at DESC;
+SELECT * FROM contact_messages ORDER BY created_at DESC;
